@@ -13,5 +13,7 @@ int main(int argc, char const *argv[]) {
 
   imprime_lista(l);
 
+  deleta_lista(l);
+
   return 0;
 }

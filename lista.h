@@ -24,5 +24,6 @@ void deleta_node(LIST, NODE);
 void deleta_node_i(LIST, int);
 
 LIST cria_lista();
+void deleta_lista(LIST);
 
 #endif

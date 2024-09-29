@@ -62,7 +62,7 @@ NODE remove_node(LIST l, NODE n) {
 NODE remove_node_i(LIST l, int v) {
   NODE n = procura_node(l, v);
 
-  if (n == NULL){
+  if (n == NULL) {
     printf("function remove_node_i: valor nao encontrado %d\n", v);
     return NULL;
   }
@@ -100,7 +100,7 @@ void deleta_node_i(LIST l, int v) {
   if (n == NULL) {
     printf("function deleta_node_i: valor nao encontrado %d\n", v);
     return;
-  } 
+  }
 
   if (n->prev != NULL) {
     n->prev->next = n->next;
@@ -113,4 +113,16 @@ void deleta_node_i(LIST l, int v) {
   }
 
   free(n);
+}
+
+void deleta_lista(LIST l) {
+  NODE aux;
+
+  while (l->head != NULL) {
+    aux = l->head;
+    l->head = l->head->next;
+    deleta_node(l, aux);
+  }
+
+  free(l);
 }
