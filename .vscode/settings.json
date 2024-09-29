@@ -2,6 +2,7 @@
     "files.associations": {
         "*.rb": "ruby",
         "main.h": "c",
-        "lista.h": "c"
+        "lista.h": "c",
+        "memory.h": "c"
     }
 }
