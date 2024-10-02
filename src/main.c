@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "lista.h"
-#include "memory.h"
+#include "../include/lista.h"
 
 int main(int argc, char const* argv[]) {
   LIST l = cria_lista();

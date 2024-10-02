@@ -1,9 +1,9 @@
-#include "lista.h"
+#include "../include/lista.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "memory.h"
+#include "../include/memory.h"
 
 void insere_node(LIST l, NODE n) {
   n->next = l->head;
@@ -17,7 +17,7 @@ void insere_node(LIST l, NODE n) {
 }
 
 void insere_valor(LIST l, int v) {
-  NODE n = (NODE)aloca(sizeof(NODE));
+  NODE n = (NODE)aloca(sizeof(struct node));
   n->key = v;
   insere_node(l, n);
 }
@@ -37,7 +37,7 @@ void imprime_lista(LIST l) {
   printf("\n");
 }
 
-LIST cria_lista() { return (LIST)aloca(sizeof(LIST)); }
+LIST cria_lista() { return (LIST)aloca(sizeof(struct list)); }
 
 NODE procura_node(LIST l, int v) {
   NODE aux = l->head;

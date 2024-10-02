@@ -7,12 +7,12 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "*.c",
+                "${fileDirname}/*.c",
                 "-o",
-                "${fileDirname}/main"
+                "${fileDirname}/../binary/main"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}/../binary/"
             },
             "problemMatcher": [
                 "$gcc"
