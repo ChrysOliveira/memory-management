@@ -1,26 +1,29 @@
-IDIR =include
-CC=gcc
-CFLAGS=-I$(IDIR)
+IDIR = include
+CC = gcc
+CFLAGS = -I$(IDIR)
 
-ODIR=obj
-LDIR =../lib
+ODIR = obj
+BDIR = binary
+SDIR = src
 
-LIBS=-lm
+LIBS = -lm
 
-_DEPS = hellomake.h
+_DEPS = lista.h memory.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = hellomake.o hellofunc.o 
+_OBJ = lista.o memory.o main.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-hellomake: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+main: $(OBJ)
+	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	rm -f $(ODIR)/*.o *~ core $(IDIR)/*~ 
+
+run:
+	$(BDIR)/main
