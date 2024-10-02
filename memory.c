@@ -29,6 +29,8 @@ byte_t* aloca(byte_t s) {
       continue;
     } else {
       vector[i] = s;
+      // TODO: excluir
+      printf("0x%08x\n", i+1);
       return &vector[i + 1];
     }
   }
@@ -44,16 +46,18 @@ void imprime_memoria() {
   printf("\n");
 }
 
-void libera(byte_t* addr) {
+void libera(void* addr) {
   // TODO: excluir
   printf("Deallocating:\n");
-  // TODO: excluir
-  printf("0x%08x: %d\n", addr - vector - 1, addr[-1]);
-  byte_t s = addr[-1];
-  addr[-1] = '\0';
+
+  byte_t* byte_addr = (byte_t*)addr;
+
+  printf("0x%08x: %d\n", (byte_addr - vector - 1), byte_addr[-1]);
+
+  byte_t s = byte_addr[-1];
+  byte_addr[-1] = '\0';
+
   for (int i = 0; i < s; i++) {
-    addr[i] = '\0';
+    byte_addr[i] = '\0';
   }
-  // TODO: excluir
-  printf("\n");
 }

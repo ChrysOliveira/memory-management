@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "memory.h"
+
 void insere_node(LIST l, NODE n) {
   n->next = l->head;
 
@@ -15,7 +17,7 @@ void insere_node(LIST l, NODE n) {
 }
 
 void insere_valor(LIST l, int v) {
-  NODE n = malloc(sizeof(NODE));
+  NODE n = (NODE)aloca(sizeof(NODE));
   n->key = v;
   insere_node(l, n);
 }
@@ -35,7 +37,7 @@ void imprime_lista(LIST l) {
   printf("\n");
 }
 
-LIST cria_lista() { return (LIST)malloc(sizeof(LIST)); }
+LIST cria_lista() { return (LIST)aloca(sizeof(LIST)); }
 
 NODE procura_node(LIST l, int v) {
   NODE aux = l->head;
@@ -91,7 +93,7 @@ void deleta_node(LIST l, NODE n) {
     n->next->prev = n->prev;
   }
 
-  free(n);
+  libera(n);
 }
 
 void deleta_node_i(LIST l, int v) {
@@ -112,7 +114,7 @@ void deleta_node_i(LIST l, int v) {
     n->next->prev = n->prev;
   }
 
-  free(n);
+  libera(n);
 }
 
 void deleta_lista(LIST l) {
@@ -124,5 +126,5 @@ void deleta_lista(LIST l) {
     deleta_node(l, aux);
   }
 
-  free(l);
+  libera(l);
 }

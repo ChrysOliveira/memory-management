@@ -7,6 +7,6 @@
 typedef unsigned char byte_t;
 byte_t* aloca(byte_t s);
 void imprime_memoria();
-void libera(byte_t*);
+void libera(void*);
 bool valid_space(int s, int e);
 #endif
