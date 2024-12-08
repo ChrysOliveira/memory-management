@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "../include/lista.h"
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   LIST l = cria_lista();
   insere_valor(l, 123);
   insere_valor(l, 321);
